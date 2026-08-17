@@ -244,7 +244,7 @@ export async function ingestTransaction(spec: TxnSpec): Promise<IngestResult> {
       rule_score: assessment.ruleScore,
       anomaly_score: assessment.anomalyScore,
       graph_score: assessment.graphScore,
-      signals: assessment.signals as unknown as Record<string, unknown>[],
+      signals: JSON.parse(JSON.stringify(assessment.signals)),
       explanation: assessment.explanation,
       scenario_tag: spec.scenarioTag ?? null,
       created_at: spec.createdAt ?? new Date().toISOString(),
