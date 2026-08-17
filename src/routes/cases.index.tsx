@@ -8,7 +8,7 @@ import { DecisionBadge, ScoreChip, SeverityPill, money, timeAgo } from "@/compon
 import { useAlerts, useCases } from "@/lib/queries";
 import { openCaseFn } from "@/lib/fraud.functions";
 
-export const Route = createFileRoute("/cases")({
+export const Route = createFileRoute("/cases/")({
   head: () => ({
     meta: [
       { title: "Investigation Cases — TrustPulse" },
