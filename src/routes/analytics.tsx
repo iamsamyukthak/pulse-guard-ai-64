@@ -72,7 +72,8 @@ function AnalyticsPage() {
 
   const topRules = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const a of alerts) counts.set(a.category, (counts.get(a.category) ?? 0) + 1);
+    for (const a of alerts) counts.set(a.severity, (counts.get(a.severity) ?? 0) + 1);
+
     return [...counts]
       .sort((a, b) => b[1] - a[1])
       .slice(0, 6)
