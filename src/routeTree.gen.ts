@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GraphRouteImport } from './routes/graph'
 import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as CasesIndexRouteImport } from './routes/cases.index'
 import { Route as CasesCaseIdRouteImport } from './routes/cases.$caseId'
@@ -17,6 +18,11 @@ import { Route as CasesCaseIdRouteImport } from './routes/cases.$caseId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraphRoute = GraphRouteImport.update({
+  id: '/graph',
+  path: '/graph',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SimulatorRoute = SimulatorRouteImport.update({
@@ -37,12 +43,14 @@ const CasesCaseIdRoute = CasesCaseIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/graph': typeof GraphRoute
   '/simulator': typeof SimulatorRoute
   '/cases/$caseId': typeof CasesCaseIdRoute
   '/cases/': typeof CasesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/graph': typeof GraphRoute
   '/simulator': typeof SimulatorRoute
   '/cases/$caseId': typeof CasesCaseIdRoute
   '/cases': typeof CasesIndexRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/graph': typeof GraphRoute
   '/simulator': typeof SimulatorRoute
   '/cases/$caseId': typeof CasesCaseIdRoute
   '/cases/': typeof CasesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/simulator' | '/cases/$caseId' | '/cases/'
+  fullPaths: '/' | '/graph' | '/simulator' | '/cases/$caseId' | '/cases/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/simulator' | '/cases/$caseId' | '/cases'
-  id: '__root__' | '/' | '/simulator' | '/cases/$caseId' | '/cases/'
+  to: '/' | '/graph' | '/simulator' | '/cases/$caseId' | '/cases'
+  id: '__root__' | '/' | '/graph' | '/simulator' | '/cases/$caseId' | '/cases/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GraphRoute: typeof GraphRoute
   SimulatorRoute: typeof SimulatorRoute
   CasesCaseIdRoute: typeof CasesCaseIdRoute
   CasesIndexRoute: typeof CasesIndexRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/graph': {
+      id: '/graph'
+      path: '/graph'
+      fullPath: '/graph'
+      preLoaderRoute: typeof GraphRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/simulator': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GraphRoute: GraphRoute,
   SimulatorRoute: SimulatorRoute,
   CasesCaseIdRoute: CasesCaseIdRoute,
   CasesIndexRoute: CasesIndexRoute,
