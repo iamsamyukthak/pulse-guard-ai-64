@@ -60,7 +60,7 @@ export interface TxnContext {
     amountLast1h: number;
     microTxnLast5m: number;
     distinctMerchantsLast10m: number;
-    prior?: { lat: number; lon: number; createdAt: string; city: string };
+    prior?: { lat: number; lon: number; createdAt: string; city: string } | undefined;
   };
   watchlistHits: { entityType: string; entityValue: string; reason: string; severity: string }[];
   graph: {
