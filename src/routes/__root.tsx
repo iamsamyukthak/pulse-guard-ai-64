@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "TrustPulse — Real-Time Payment Fraud Operations" },
+      { name: "description", content: "Live payment fraud intelligence: real-time risk scoring, alerts, investigation cases and an evidence-grounded AI copilot." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "TrustPulse — Real-Time Payment Fraud Operations" },
+      { property: "og:description", content: "Live payment fraud intelligence: real-time risk scoring, alerts, investigation cases and an evidence-grounded AI copilot." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "TrustPulse — Real-Time Payment Fraud Operations" },
+      { name: "twitter:description", content: "Live payment fraud intelligence: real-time risk scoring, alerts, investigation cases and an evidence-grounded AI copilot." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1c6ebe43c85627f77ec1d5922fc63c8d/id-preview-2d97f5eb--32724efd-a2d0-4020-bae4-3f6eda321f4a.lovable.app-1786973731619.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1c6ebe43c85627f77ec1d5922fc63c8d/id-preview-2d97f5eb--32724efd-a2d0-4020-bae4-3f6eda321f4a.lovable.app-1786973731619.png" },
     ],
     links: [
       {
