@@ -226,7 +226,7 @@ function AnalyticsPage() {
         </section>
 
         <section className="panel p-4 xl:col-span-2">
-          <h2 className="text-sm font-semibold">Top alert categories</h2>
+          <h2 className="text-sm font-semibold">Alerts by severity</h2>
           <ul className="mt-4 space-y-2.5">
             {topRules.map((r) => {
               const max = topRules[0]?.count ?? 1;
